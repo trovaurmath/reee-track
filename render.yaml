@@ -2,7 +2,7 @@ services:
   - type: web
     name: reee-track-api
     runtime: docker
-    plan: starter
+    plan: free
     region: virginia
     dockerContext: ./backend
     dockerfilePath: ./backend/Dockerfile
@@ -64,10 +64,9 @@ services:
 
 databases:
   - name: reee-track-db
-    plan: basic-256mb
+    plan: free
     region: virginia
     postgresMajorVersion: "17"
     databaseName: reee_track
     user: reee_track
-    diskSizeGB: 5
     ipAllowList: []

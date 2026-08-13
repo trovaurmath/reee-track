@@ -106,7 +106,7 @@ Serviços disponíveis:
 - Swagger: <http://localhost:8000/docs>;
 - readiness: <http://localhost:8000/api/v1/health/ready>.
 
-### Hospedagem permanente no Render
+### Hospedagem temporária no Render
 
 O arquivo `render.yaml` prepara a aplicação para execução independente do
 computador local, com frontend estático, API FastAPI e PostgreSQL persistente.
@@ -114,13 +114,13 @@ computador local, com frontend estático, API FastAPI e PostgreSQL persistente.
 1. Acesse <https://dashboard.render.com/blueprints> e conecte a conta do GitHub.
 2. Crie um Blueprint usando o repositório `trovaurmath/reee-track`.
 3. Informe uma senha forte em `INITIAL_ADMIN_PASSWORD` quando solicitado.
-4. Revise o valor mensal exibido pelo Render antes de confirmar a criação.
+4. Confirme a criação dos recursos gratuitos.
 5. Aguarde os três recursos ficarem disponíveis e abra a URL de `reee-track-web`.
 
-O serviço web usa uma instância paga para não suspender por inatividade. O banco
-também usa um plano persistente; bancos gratuitos do Render expiram e não devem
-ser usados para acesso contínuo. Novos commits aprovados pelo CI geram uma nova
-implantação automaticamente.
+O serviço usa os planos gratuitos para demonstrações temporárias. A API pode
+suspender após 15 minutos sem tráfego e voltar a responder no primeiro acesso.
+O banco PostgreSQL gratuito expira 30 dias após a criação. Novos commits
+aprovados pelo CI geram uma nova implantação automaticamente.
 
 As credenciais iniciais são lidas do `.env`. Nos valores de demonstração:
 

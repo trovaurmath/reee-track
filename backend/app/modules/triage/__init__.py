@@ -1,0 +1,1 @@
+"""Configurable equipment triage module."""

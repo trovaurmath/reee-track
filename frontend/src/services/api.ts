@@ -25,7 +25,11 @@ import type {
   TriageQueueResponse,
 } from "../types/triage";
 
-export const API_URL = import.meta.env.VITE_API_URL ?? "/api/v1";
+const apiOrigin = import.meta.env.VITE_API_ORIGIN?.replace(/\/$/, "");
+
+export const API_URL = apiOrigin
+  ? `${apiOrigin}/api/v1`
+  : (import.meta.env.VITE_API_URL ?? "/api/v1");
 
 interface ApiErrorPayload {
   message?: string;

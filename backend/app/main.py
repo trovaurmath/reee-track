@@ -26,9 +26,13 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+allowed_origins = list(settings.cors_origins)
+if settings.public_frontend_url not in allowed_origins:
+    allowed_origins.append(settings.public_frontend_url)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.cors_origins,
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
